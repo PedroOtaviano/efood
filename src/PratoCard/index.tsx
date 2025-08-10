@@ -34,7 +34,7 @@ const PratoCard = ({
         {getDescricao(descricao)} <br />
         Serve: {porcao}
       </Cardtexto>
-      <Botao onClick={onAddClick}>Adicionar ao carrinho</Botao>
+      <Botao onClick={onAddClick}>Mais detalhes</Botao>
     </CardContainer>
   )
 }

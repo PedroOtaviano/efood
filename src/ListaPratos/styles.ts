@@ -55,6 +55,8 @@ export const ModalTexto = styled.div`
     font-weight: bold;
   }
   button {
+    font-size: 14px;
+    font-weight: bold;
     background-color: ${cores.tag};
     color: ${cores.corPrincipal};
     border: none;
