@@ -1,0 +1,2 @@
+https://ebac-fake-api.vercel.app/api/efood/restaurantes
+https://ebac-fake-api.vercel.app/api/efood/restaurantes/ID

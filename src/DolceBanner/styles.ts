@@ -8,6 +8,7 @@ export const Imagem = styled.div`
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4));
   padding-top: 25px;
   padding-left: 170px;
   color: ${cores.fundoBranco};

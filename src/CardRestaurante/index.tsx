@@ -1,26 +1,52 @@
 import imagemDolce from '../assets/images/la_dolce.png'
 import estrela from '../assets/images/estrela.png'
-import { CardContainer, CardLink, CardTitulo, Texto } from './styles'
+import {
+  CardContainer,
+  CardLink,
+  CardTitulo,
+  Texto,
+  TagsWrapper
+} from './styles'
 import Tag from '../Tag'
+import { Menu } from '../ListaRestaurantes'
 
-const CardRestaurante = () => {
+type Props = {
+  id: number
+  titulo: string
+  destacado: boolean
+  tipo: string
+  avaliacao: number
+  descricao: string
+  capa: string
+  cardapio: Menu[]
+}
+
+const CardRestaurante = ({
+  id,
+  titulo,
+  destacado,
+  tipo,
+  avaliacao,
+  descricao,
+  capa,
+  cardapio
+}: Props) => {
   return (
     <CardContainer>
-      <Tag>Italiana</Tag>
-      <img src={imagemDolce} alt="Dolce" />
+      <TagsWrapper>
+        {destacado && <Tag>Destaque da semana</Tag>}
+        <Tag>{tipo}</Tag>
+      </TagsWrapper>
+
+      <img src={cardapio[0].foto} alt="Dolce" />
       <CardTitulo>
-        <h3>La Dolce Vita Trattoria</h3>
+        <h3>{titulo}</h3>
         <span>
-          4.9 <img src={estrela} alt="Estrela" />
+          {avaliacao} <img src={estrela} alt="Estrela" />
         </span>
       </CardTitulo>
-      <Texto>
-        A La Dolce Vita Trattoria leva a autêntica cozinha italiana até você!
-        Desfrute de massas caseiras, pizzas deliciosas e risotos incríveis, tudo
-        no conforto do seu lar. Entrega rápida, pratos bem embalados e sabor
-        inesquecível. Peça já!
-      </Texto>
-      <CardLink to="/Dolce">Saiba mais</CardLink>
+      <Texto>{descricao}</Texto>
+      <CardLink to={`/Dolce/${id}`}>Saiba mais</CardLink>
     </CardContainer>
   )
 }

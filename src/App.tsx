@@ -10,7 +10,7 @@ function App() {
       <GlobalCss />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/Dolce" element={<Dolce />} />
+        <Route path="/Dolce/:id" element={<Dolce />} />
       </Routes>
     </Router>
   )

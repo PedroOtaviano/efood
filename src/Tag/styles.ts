@@ -7,7 +7,6 @@ export const TagContainer = styled.div`
   padding: 6px 12px;
   color: ${cores.tag};
   background-color: ${cores.corPrincipal};
-  position: absolute;
-  top: 16px;
-  right: 16px;
+  border-radius: 4px;
+  display: inline-block;
 `

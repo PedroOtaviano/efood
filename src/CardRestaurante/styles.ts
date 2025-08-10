@@ -12,6 +12,13 @@ export const CardContainer = styled.div`
   height: 398px;
   padding-bottom: 8px;
   position: relative;
+
+  > img {
+    display: block;
+    width: 100%;
+    height: 217px;
+    object-fit: cover;
+  }
 `
 export const Texto = styled.p`
   margin-left: 8px;
@@ -40,7 +47,19 @@ export const CardLink = styled(Link)`
   text-decoration: none;
   font-weight: bold;
   font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+
   &:hover {
     background-color: #c94c4c;
   }
+`
+export const TagsWrapper = styled.div`
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  z-index: 2;
 `

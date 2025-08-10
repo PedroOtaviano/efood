@@ -8,6 +8,13 @@ export const CardContainer = styled.div`
   width: 320px;
   height: 338px;
   display: block;
+
+  img {
+    display: block;
+    width: 304px;
+    height: 167px;
+    object-fit: cover;
+  }
 `
 export const Botao = styled.button`
   background-color: ${cores.fundoRodape};
@@ -18,6 +25,14 @@ export const Botao = styled.button`
   padding: 4px 84px;
   border: none;
   text-align: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: #d64545;
+    color: white;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  }
 `
 
 export const CardTitulo = styled.h3`

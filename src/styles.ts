@@ -15,10 +15,21 @@ export const GlobalCss = createGlobalStyle`
     box-sizing: border-box;
     font-family: Roboto, sans-serif;
     text-decoration: none;
+    list-style: none;
   }
 
   body {
     background-color: ${cores.fundoPrincipal};
     color: ${cores.corPrincipal};
+  }
+
+  .containerModal{
+    margin: 171px 490px;
+    padding: 8px;
+    background-color: ${cores.corPrincipal};
+    color: ${cores.fundoBranco};
+    display: flex;
+    flex-direction: column;
+    position: relative;
   }
 `
