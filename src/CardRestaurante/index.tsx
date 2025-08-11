@@ -38,7 +38,7 @@ const CardRestaurante = ({
         <Tag>{tipo}</Tag>
       </TagsWrapper>
 
-      <img src={cardapio[0].foto} alt="Dolce" />
+      <img src={capa} alt="Foto restaurante" />
       <CardTitulo>
         <h3>{titulo}</h3>
         <span>
