@@ -2,6 +2,7 @@ import { useState } from 'react'
 
 import PratoCard from '../PratoCard'
 import {
+  ContainerModal,
   ListaContainer,
   Modal,
   ModalContent,
@@ -34,15 +35,15 @@ const ListaPratos = ({ menu }: Props) => {
           <>
             <ModalOverlay onClick={() => setPratoSelecionado(null)} />
             <Modal>
-              <div className="containerModal">
+              <ContainerModal>
                 <ModalHeader>
                   <img
                     src={imgClose}
-                    alt="Ícone de fechar"
+                    alt="Fechar"
                     onClick={() => setPratoSelecionado(null)}
                   />
                 </ModalHeader>
-                <ModalContent onClick={(evento) => evento.stopPropagation()}>
+                <ModalContent>
                   <img
                     src={pratoSelecionado?.foto}
                     alt={pratoSelecionado?.nome}
@@ -50,7 +51,9 @@ const ListaPratos = ({ menu }: Props) => {
                   <ModalTexto>
                     <h4>{pratoSelecionado?.nome}</h4>
                     <p>
-                      {pratoSelecionado?.descricao} <br /> <br />
+                      {pratoSelecionado?.descricao}
+                      <br />
+                      <br />
                       Serve: {pratoSelecionado?.porcao}
                     </p>
                     <button>
@@ -59,7 +62,7 @@ const ListaPratos = ({ menu }: Props) => {
                     </button>
                   </ModalTexto>
                 </ModalContent>
-              </div>
+              </ContainerModal>
             </Modal>
           </>
         )}

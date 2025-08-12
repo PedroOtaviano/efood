@@ -8,6 +8,7 @@ import ListaPratos from '../../ListaPratos'
 import Rodape from '../../Rodape'
 import { PaginaContainer } from '../Home/styles'
 import { Restaurante } from '../../ListaRestaurantes'
+import Cart from '../../Cart'
 
 const Dolce = () => {
   const { id } = useParams()
@@ -35,6 +36,7 @@ const Dolce = () => {
         <ListaPratos menu={restaurante.cardapio} />
       </Conteudo>
       <Rodape />
+      <Cart />
     </PaginaContainer>
   )
 }

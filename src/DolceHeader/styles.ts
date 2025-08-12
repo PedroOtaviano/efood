@@ -33,6 +33,10 @@ export const Texto = styled.h3`
   font-size: 18px;
   font-weight: 900;
   margin: 0;
+
+  &:hover {
+    cursor: pointer;
+  }
 `
 
 export const StyleLink = styled(Link)`
