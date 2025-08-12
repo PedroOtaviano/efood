@@ -10,18 +10,27 @@ import {
   Lixeira,
   TextItem
 } from './styles'
-import marguerita from '../assets/images/pizza.png'
 import lixeira from '../assets/images/lixeira.png'
-
-import { close } from '../store/reducers/cart'
+import { formatarPreco } from '../ListaPratos'
+import { close, remove } from '../store/reducers/cart'
 
 const Cart = () => {
   const { isOpen } = useSelector((state: RootReducer) => state.cart)
-
+  const { items } = useSelector((state: RootReducer) => state.cart)
   const dispatch = useDispatch()
 
   const closeCart = () => {
     dispatch(close())
+  }
+
+  const removePrato = (id: number) => {
+    dispatch(remove(id))
+  }
+
+  const GetTotalPrice = () => {
+    return items.reduce((acumulador, valorAtual) => {
+      return (acumulador += valorAtual.preco!)
+    }, 0)
   }
 
   return (
@@ -29,30 +38,22 @@ const Cart = () => {
       <Overlay onClick={closeCart} />
       <Sidebar>
         <ul>
-          <CartItem>
-            <img src={marguerita} />
-            <TextItem>
-              <h3>Nome do prato</h3>
-              <span>R$ 60.90</span>
-            </TextItem>
-            <Lixeira>
-              <img src={lixeira} />
-            </Lixeira>
-          </CartItem>
-          <CartItem>
-            <img src={marguerita} />
-            <TextItem>
-              <h3>Nome do prato</h3>
-              <span>R$ 60.90</span>
-            </TextItem>
-            <Lixeira>
-              <img src={lixeira} />
-            </Lixeira>
-          </CartItem>
+          {items.map((item) => (
+            <CartItem key={item.id}>
+              <img src={item.foto} />
+              <TextItem>
+                <h3>{item.nome}</h3>
+                <span>{formatarPreco(item.preco)}</span>
+              </TextItem>
+              <Lixeira onClick={() => removePrato(item.id)}>
+                <img src={lixeira} />
+              </Lixeira>
+            </CartItem>
+          ))}
         </ul>
         <p>
           <span>Valor total</span>
-          <span>R$ 182,70</span>
+          <span>{formatarPreco(GetTotalPrice())}</span>
         </p>
         <Botao>Continuar com a entrega</Botao>
       </Sidebar>

@@ -57,10 +57,17 @@ export const CartItem = styled.li`
   }
 `
 
-export const Lixeira = styled.div`
+export const Lixeira = styled.button`
+  border: none;
+  background-color: ${cores.fundoRodape};
   position: absolute;
   bottom: 8px;
   right: 8px;
+  z-index: 1;
+
+  &:hover {
+    cursor: pointer;
+  }
 `
 
 export const TextItem = styled.div`

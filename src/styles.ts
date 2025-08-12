@@ -22,14 +22,4 @@ export const GlobalCss = createGlobalStyle`
     background-color: ${cores.fundoPrincipal};
     color: ${cores.corPrincipal};
   }
-
-  .containerModal{
-    margin: 171px 490px;
-    padding: 8px;
-    background-color: ${cores.corPrincipal};
-    color: ${cores.fundoBranco};
-    display: flex;
-    flex-direction: column;
-    position: relative;
-  }
 `

@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 
 import logo from '../assets/images/logo.svg'
 import imagemFundo from '../assets/images/header.png'
@@ -12,6 +12,7 @@ import {
 } from './styles'
 
 import { open } from '../store/reducers/cart'
+import { RootReducer } from '../store'
 
 const DolceHeader = () => {
   const dispatch = useDispatch()
@@ -19,6 +20,8 @@ const DolceHeader = () => {
   const openCart = () => {
     dispatch(open())
   }
+
+  const { items } = useSelector((state: RootReducer) => state.cart)
 
   return (
     <Imagem style={{ backgroundImage: `url(${imagemFundo})` }}>
@@ -28,7 +31,9 @@ const DolceHeader = () => {
           <Link to={'/'}>
             <img src={logo} alt="Efood logo" />
           </Link>
-          <Texto onClick={openCart}>0 produto(s) no carrinho</Texto>
+          <Texto onClick={openCart}>
+            {items.length} produto(s) no carrinho
+          </Texto>
         </ListaContainer>
       </HeaderContainer>
     </Imagem>

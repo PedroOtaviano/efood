@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { useDispatch } from 'react-redux'
 
 import PratoCard from '../PratoCard'
 import {
@@ -12,20 +13,30 @@ import {
 } from './styles'
 import { Menu } from '../ListaRestaurantes'
 import imgClose from '../assets/images/close.png'
+import { add, open } from '../store/reducers/cart'
 
 type Props = {
   menu: Menu[]
 }
 
+export const formatarPreco = (valor: number | string) => {
+  return Number(valor).toLocaleString('pt-BR', {
+    style: 'currency',
+    currency: 'BRL'
+  })
+}
+
 const ListaPratos = ({ menu }: Props) => {
   const [pratoSelecionado, setPratoSelecionado] = useState<Menu | null>(null)
   const isModalOpen = !!pratoSelecionado
+  const dispatch = useDispatch()
 
-  const formatarPreco = (valor: number | string) => {
-    return Number(valor).toLocaleString('pt-BR', {
-      style: 'currency',
-      currency: 'BRL'
-    })
+  const addPrato = (prato: Menu) => {
+    if (pratoSelecionado) {
+      dispatch(add(prato))
+    }
+    setPratoSelecionado(null)
+    dispatch(open())
   }
 
   return (
@@ -56,7 +67,7 @@ const ListaPratos = ({ menu }: Props) => {
                       <br />
                       Serve: {pratoSelecionado?.porcao}
                     </p>
-                    <button>
+                    <button onClick={() => addPrato(pratoSelecionado)}>
                       Adicionar ao carrinho -{' '}
                       {formatarPreco(pratoSelecionado?.preco)}
                     </button>
