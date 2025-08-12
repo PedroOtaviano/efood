@@ -14,6 +14,7 @@ import {
 import { Menu } from '../ListaRestaurantes'
 import imgClose from '../assets/images/close.png'
 import { add, open } from '../store/reducers/cart'
+import { Botao } from '../PratoCard/styles'
 
 type Props = {
   menu: Menu[]
@@ -67,10 +68,10 @@ const ListaPratos = ({ menu }: Props) => {
                       <br />
                       Serve: {pratoSelecionado?.porcao}
                     </p>
-                    <button onClick={() => addPrato(pratoSelecionado)}>
+                    <Botao onClick={() => addPrato(pratoSelecionado)}>
                       Adicionar ao carrinho -{' '}
                       {formatarPreco(pratoSelecionado?.preco)}
-                    </button>
+                    </Botao>
                   </ModalTexto>
                 </ModalContent>
               </ContainerModal>
