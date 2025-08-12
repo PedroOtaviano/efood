@@ -10,8 +10,13 @@ export const Imagem = styled.div`
   background-size: cover;
   background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4));
   padding-top: 25px;
-  padding-left: 170px;
   color: ${cores.fundoBranco};
+
+  div {
+    max-width: 1024px;
+    width: 100%;
+    margin: 0 auto;
+  }
 `
 
 export const SubTitulo = styled.h3`

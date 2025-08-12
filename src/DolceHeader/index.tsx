@@ -9,6 +9,7 @@ import {
   Texto,
   StyleLink
 } from './styles'
+import Conteudo from '../Conteudo'
 
 const DolceHeader = () => {
   return (

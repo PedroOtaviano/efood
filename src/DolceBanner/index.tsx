@@ -14,8 +14,10 @@ const DolceBanner = ({ tipo, capa, titulo }: Props) => {
         backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(${capa})`
       }}
     >
-      <SubTitulo>{tipo}</SubTitulo>
-      <h2>{titulo}</h2>
+      <div>
+        <SubTitulo>{tipo}</SubTitulo>
+        <h2>{titulo}</h2>
+      </div>
     </Imagem>
   )
 }

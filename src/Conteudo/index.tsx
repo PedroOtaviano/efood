@@ -1,6 +1,5 @@
 import { ReactElement } from 'react'
 import { StyleConteudo } from './styles'
-import { JsxElement } from 'typescript'
 
 type ConteudoProps = {
   children?: ReactElement

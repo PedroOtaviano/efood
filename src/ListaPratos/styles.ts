@@ -5,7 +5,7 @@ export const ListaContainer = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   gap: 32px;
-  max-width: 1200px;
+  max-width: 1024px;
   width: 100%;
   margin-top: 16px;
   margin-left: 170px;
