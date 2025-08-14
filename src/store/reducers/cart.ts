@@ -4,11 +4,13 @@ import { Menu } from '../../ListaRestaurantes'
 type CartState = {
   items: Menu[]
   isOpen: boolean
+  isCheckoutOpen: boolean
 }
 
 const initialState: CartState = {
   items: [],
-  isOpen: false
+  isOpen: false,
+  isCheckoutOpen: false
 }
 
 const cartSlice = createSlice({
@@ -31,9 +33,17 @@ const cartSlice = createSlice({
     },
     close: (state) => {
       state.isOpen = false
+      state.isCheckoutOpen = false
+    },
+    openCheckout: (state) => {
+      state.isCheckoutOpen = true
+    },
+    closeCheckout: (state) => {
+      state.isCheckoutOpen = false
     }
   }
 })
 
-export const { add, open, close, remove } = cartSlice.actions
+export const { add, open, close, remove, openCheckout, closeCheckout } =
+  cartSlice.actions
 export default cartSlice.reducer
